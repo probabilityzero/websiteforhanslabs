@@ -1,0 +1,350 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700);
+@import url(https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap);
+
+/* CSS for the preloader */
+.preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff; /* Set background color as needed */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+}
+
+a {
+        position: relative;
+        text-decoration: none;
+        color: #000; /* Set your desired text color */
+}
+
+a::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px; /* Set the underline height */
+        bottom: 0;
+        left: 0;
+        background-color: #000; /* Set the underline color */
+        transition: width 0.3s ease; /* Set the transition duration and easing */
+}
+
+a:hover::before {
+        width: 100%;
+}
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+[role="button"],
+[tabindex] {
+        text-decoration: none !important;
+        outline: none !important;
+        color: inherit !important;
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover,
+[tabindex]:hover {
+        text-decoration: none !important;
+        outline: none !important;
+        color: inherit !important;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:focus,
+a:visited,
+a:active {
+        text-decoration: none;
+        outline: none;
+        color: inherit;
+}
+
+body,
+html {
+        margin: 0;
+        padding: 0;
+        overscroll-behavior: none;
+        touch-action: none;
+        user-select: none;
+}
+
+body {
+        font-family: Montserrat, "Helvetica Neue", sans-serif;
+        background: linear-gradient(
+                to bottom,
+                #f9f9f9,
+                #fffff0,
+                #f8f8ff,
+                #faf0e6
+        );
+        height: 100vh;
+        font-size: 13px;
+}
+
+#header {
+        padding: 0.36rem;
+        color: black;
+        display: flex;
+        justify-content: space-between; /* Distribute space between h1 and toggle-menu */
+        align-items: center;
+}
+
+#header h1 {
+        margin-right: auto;
+        margin-left: 0.3em;
+        text-decoration: none;
+        display: inline-block;
+        z-index: 1111;
+}
+
+/* Menu Styles */
+#menu {
+        background: #fff;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: fixed;
+        align-items: center;
+        top: 0;
+        transition: all 0.5s ease-in-out;
+        visibility: hidden;
+        width: 100%;
+        text-transform: capitalize;
+        z-index: 1100;
+}
+
+#menu.open {
+        opacity: 1;
+        visibility: visible;
+	}
+
+#menu ul {
+        text-align: left;
+}
+
+#menu ul {
+        a {
+                -webkit-transform: translateZ(0);
+                opacity: 0.6;
+                transition: opacity 0.3s ease-in-out;
+        }
+
+        a:hover {
+                opacity: 1;
+        }
+}
+
+#menu .current {
+        font-weight: 700;
+        font-style: italic;
+        font-family: "Bodoni Moda", serif;
+}
+
+#menu .main-nav {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+#menu .main-nav ul {
+        list-style: none;
+        margin: 0;
+}
+
+#menu .main-nav li {
+	padding: 0.6rem;
+}
+
+#menu .main-nav a {
+        color: #000;
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding: 0;
+        text-decoration: none;
+}
+
+#menu .main-nav a:first-child {
+        padding-top: 0;
+}
+
+#menu.open li {
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+        animation-name: fadeInUp;
+}
+
+#menu.open li:nth-child(1) {
+        animation-delay: 0.1s;
+}
+
+#menu.open li:nth-child(2) {
+        animation-delay: 0.15s;
+}
+
+#menu.open li:nth-child(3) {
+        animation-delay: 0.2s;
+}
+
+#menu.open li:nth-child(4) {
+        animation-delay: 0.25s;
+}
+
+@keyframes fadeInUp {
+        from {
+                opacity: 0;
+                transform: translateY(24px);
+        }
+        to {
+                opacity: 1;
+                transform: translateY(0);
+        }
+}
+
+#menu .social-links {
+        color: #333;
+        position: fixed;
+        font-stretch: condensed;
+        bottom: 2em; /* Adjust as needed for the desired distance from the bottom */
+        right: 1.6em; /* Adjust as needed for the desired distance from the right */
+}
+
+#menu.open .social-links li {
+        animation-duration: 0.6s;
+        animation-fill-mode: both;
+        animation-name: fadeInLeft;
+}
+
+#menu.open .social-links li:nth-child(1) {
+        animation-delay: 0.11s;
+}
+
+#menu.open .social-links li:nth-child(2) {
+        animation-delay: 0.16s;
+}
+
+#menu.open .social-links li:nth-child(3) {
+        animation-delay: 0.21s;
+}
+
+@keyframes fadeInLeft {
+        from {
+                opacity: 0;
+                transform: translateX(20px);
+        }
+        to {
+                opacity: 1;
+                transform: translateX(0);
+        }
+}
+
+#menu .social-links ul {
+        display: flex; /* Use flexbox for alignment */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+
+#menu .social-links li {
+        margin-right: 0.8em; /* Adjust as needed for the desired gap between links */
+}
+
+#menu .social-links a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.2em;
+}
+
+/* Hamburger Menu Toggler Styles */
+.toggle-menu {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        height: 40px;
+        outline: none;
+        padding: 0;
+        pointer-events: initial;
+        position: relative;
+        vertical-align: middle;
+        width: 40px;
+        z-index: 1110;
+}
+
+.toggle-menu span {
+        background-color: #000;
+        content: "";
+        display: block;
+        height: 2px;
+        left: calc(50% - 13px);
+        position: absolute;
+        top: calc(50% - 1px);
+        transform-origin: 50% 50%;
+        transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,
+                transform 0.2s linear;
+        width: 26px;
+}
+
+.toggle-menu span:before,
+.toggle-menu span:after {
+        background-color: #000;
+        content: "";
+        display: block;
+        height: 2.09px;
+        position: absolute;
+        transform-origin: 50% 50%;
+        transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,
+                transform 0.2s linear;
+        width: 26px;
+}
+
+.toggle-menu span:before {
+        top: 7px;
+}
+
+.toggle-menu span:after {
+        top: -7px;
+}
+
+.toggle-menu.active span {
+        background-color: transparent;
+        transition: background 0.2s ease-out;
+}
+
+.toggle-menu.active span:before,
+.toggle-menu.active span:after {
+        transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+}
+
+.toggle-menu.active span:before {
+        top: 0;
+        transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.toggle-menu.active span:after {
+        top: 0;
+        transform: rotate3d(0, 0, 1, 45deg);
+}
+ 
